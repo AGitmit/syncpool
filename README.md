@@ -48,8 +48,6 @@ SyncPool also provides an asynchronous module (`AsyncObjectPool`) for managing o
 
 Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests via GitHub.
 
-Before contributing, please make sure to read our Contribution Guidelines.
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
