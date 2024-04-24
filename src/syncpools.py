@@ -116,7 +116,7 @@ class AsyncObjectPool:
         "Get() coroutine-safe; Mot thread-safe."
         self._validate_process()
         async with self._lock:
-            if await len(self.stack) > 0:
+            if len(self.stack) > 0:
                 x = self.stack.pop()
             else:
                 x = self.obj()
