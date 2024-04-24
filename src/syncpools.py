@@ -10,7 +10,7 @@ from exceptions import IllegalProcessAccessError
 
 class ObjectPool:
     """
-    Sync object-pool, imitating Go's (Golang) sync.Pool implementation.
+    Synchronous object-pool, imitating Go's (Golang) sync.Pool implementation.
     This is a thread-safe solution for object synchronization across multiple threads,
     with the main goal of minimizing memory related overhead by reusing already allocated memory.
 
@@ -73,7 +73,7 @@ class ObjectPool:
 
 class AsyncObjectPool:
     """
-    Sync object-pool, imitating Go's (Golang) sync.Pool implementation.
+    Asynchronous object-pool, imitating Go's (Golang) sync.Pool implementation.
     This solution is used for object synchronization across multiple coroutines (not a thread-safe),
     with the main goal of minimizing memory related overhead by reusing already allocated memory.
 
