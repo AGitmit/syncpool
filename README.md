@@ -12,14 +12,14 @@ SyncPool is a Python library providing a thread-safe solution for managing a poo
 ## Installation
 
 You can install the SyncPool library using pip:
-`pip install sync-pool`
+`pip install syncpool`
 
 ## Usage
 ### Basic Usage
 ```
 from sync_pool import ObjectPool
 # Create an object pool with a maximum capacity of 10 objects
-pool = ObjectPool(cap=10)
+pool = ObjectPool(max_len=10)
 
 # Put an object into the pool
 pool.put(my_object)
@@ -37,7 +37,7 @@ def on_get(obj):
     print("Object retrieved from the pool:", obj)
 
 # Create an object pool with custom callbacks
-pool = ObjectPool(cap=10, on_put=on_put, on_get=on_get)
+pool = ObjectPool(max_len=10, on_put=on_put, on_get=on_get)
 ```
 
 #### Asynchronous Module
