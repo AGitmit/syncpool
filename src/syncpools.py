@@ -23,12 +23,12 @@ class ObjectPool:
 
     def __init__(
         self,
-        cap: int | None = None,
+        max_len: int | None = None,
         obj: Any = None,
         on_put: Callable | None = None,
         on_get: Callable | None = None,
     ) -> None:
-        self.stack = deque(maxlen=cap)
+        self.stack = deque(maxlen=max_len)
         self.obj = obj or GenericObject
         self.on_put = on_put
         self.on_get = on_get
@@ -86,12 +86,12 @@ class AsyncObjectPool:
 
     def __init__(
         self,
-        cap: int | None = None,
+        max_len: int | None = None,
         obj: Any = None,
         on_put: Callable | None = None,
         on_get: Callable | None = None,
     ) -> None:
-        self.stack = deque(maxlen=cap)
+        self.stack = deque(maxlen=max_len)
         self.obj = obj or GenericObject
         self.on_put = on_put
         self.on_get = on_get
