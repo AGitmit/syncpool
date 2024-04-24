@@ -113,7 +113,7 @@ class AsyncObjectPool:
         return False if await self.async_count() > 0 else True
 
     async def async_get(self) -> Any:
-        "Get() coroutine-safe; Mot thread-safe."
+        "Get() coroutine-safe; Not thread-safe."
         self._validate_process()
         async with self._lock:
             if len(self.stack) > 0:
@@ -125,7 +125,7 @@ class AsyncObjectPool:
         return x
 
     async def async_put(self, x: Any) -> None:
-        "Put() coroutine-safe; Mot thread-safe."
+        "Put() coroutine-safe; Not thread-safe."
         self._validate_process()
         if self.on_put:
             self.on_put(x)
