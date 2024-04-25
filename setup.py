@@ -7,4 +7,5 @@ setup(
     author="Amit Nakash",
     use_scm_version=True,
     setup_requires=["setuptools_scm"],
+    url="https://github.com/AGitmit/syncpool.git",
 )
