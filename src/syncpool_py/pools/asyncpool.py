@@ -38,15 +38,15 @@ class AsyncObjectPool(BaseObjectPool):
 
     @_with_lock
     async def close(self) -> None:
-        super().close()
+        return super().close()
 
     @_with_lock
     async def open(self) -> None:
-        super().open()
+        return super().open()
 
     @_with_lock
     async def clean_pool(self) -> None:
-        super().clean_pool()
+        return super().clean_pool()
 
     @_with_lock
     async def count(self) -> int:
@@ -62,4 +62,4 @@ class AsyncObjectPool(BaseObjectPool):
 
     @_with_lock
     async def put(self, o: Any) -> None:
-        super().put(o)
+        return super().put(o)

@@ -39,15 +39,15 @@ class SyncObjectPool(BaseObjectPool):
 
     @_with_lock
     def close(self) -> None:
-        super().close()
+        return super().close()
 
     @_with_lock
     def open(self) -> None:
-        super().open()
+        return super().open()
 
     @_with_lock
     def clean_pool(self) -> None:
-        super().clean_pool()
+        return super().clean_pool()
 
     @_with_lock
     def count(self) -> int:
@@ -63,4 +63,4 @@ class SyncObjectPool(BaseObjectPool):
 
     @_with_lock
     def put(self, o: Any) -> None:
-        super().put(o)
+        return super().put(o)
