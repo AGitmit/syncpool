@@ -8,3 +8,9 @@ class PoolClosedError(BaseException):
     def __init__(self) -> None:
         err_msg = "Pool has been closed. Either re-open the pool or create a new one."
         super().__init__(err_msg)
+
+
+class PoolCapacityReachedError(BaseException):
+    def __init__(self) -> None:
+        err_msg = "Pool is fully occupied, failed to accept passed object."
+        super().__init__(err_msg)
