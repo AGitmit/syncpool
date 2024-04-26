@@ -63,6 +63,7 @@ class BaseObjectPool:
         #         self._stack.popleft()
         ...
 
+    @_validate_owner_process
     def is_running(self) -> bool:
         return True if self._running else False
 
@@ -84,11 +85,12 @@ class BaseObjectPool:
         if len(self._stack) > 0:
             self._stack.clear()
 
+    @_validate_owner_process
     def count(self) -> int:
         "Returns the number of elements in the stack"
         return len(self._stack)
 
-    @_allow_when_running
+    @_validate_owner_process
     def is_empty(self) -> bool:
         "Returns `True` if stack is empty"
         return False if len(self._stack) > 0 else True
@@ -106,6 +108,7 @@ class BaseObjectPool:
         return None
 
     @_validate_owner_process
+    @_allow_when_running
     def get_new_obj(self) -> Any:
         return self.obj()
 
@@ -113,11 +116,8 @@ class BaseObjectPool:
     @_allow_when_running
     def put(self, o: Any) -> None:
         "Puts an element to the top of the stack"
-        self._validate_owner_process()
         if not self._stack.maxlen or self._stack.maxlen > len(self._stack):
             if self.on_put:
                 self.on_put(o)
-            return self._stack.append(
-                (o, time.time())
-            )  # include timestamp of insertion
+            return self._stack.append((o, time.time()))  # include timestamp of insertion
         raise exceptions.PoolCapacityReachedError()
