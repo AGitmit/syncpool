@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="syncpool-py",
-    version="0.1.0",
+    version="0.1.1",
     description="Synchronization object-pools, imitating Go's (Golang) sync.Pool implementation.",
     package_dir={"": "src"},
     packages=find_packages(where="src", exclude=["tests"]),
